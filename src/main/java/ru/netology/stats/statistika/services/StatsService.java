@@ -39,20 +39,14 @@ public class StatsService {
 
     public long medSumSales(long[] sales) {
         long medSum = 0;
-        for (long sale : sales) {
-            medSum = medSum + sale;
-        }
-        medSum = medSum / sales.length;
+        medSum = sumAllSales(sales) / sales.length;
         return medSum;
     }
 
     public long amountMonthLowerMedium(long[] sales) {
         long medSum = 0;
         long amountMonth = 0;
-        for (long sale : sales) {
-            medSum = medSum + sale;
-        }
-        medSum = medSum / sales.length;
+        medSum = medSumSales(sales);
         for (long sale : sales) {
             if (medSum > sale) {
                 amountMonth = amountMonth + 1;
@@ -64,10 +58,7 @@ public class StatsService {
     public long amountMontUpMedium(long[] sales) {
         long medSum = 0;
         long amountMonth = 0;
-        for (long sale : sales) {
-            medSum = medSum + sale;
-        }
-        medSum = medSum / sales.length;
+        medSum = medSumSales(sales);
         for (long sale : sales) {
             if (medSum < sale) {
                 amountMonth = amountMonth + 1;
